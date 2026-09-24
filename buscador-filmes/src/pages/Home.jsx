@@ -8,31 +8,31 @@ const GENRES = [
     {
         id: 'popular',
         name: 'Populares',
-        endpoint: '/movie/popular'
+        endpoint: '/movie/popular',
     },
     {
         id: '28',
         name: 'Ação',
         endpoint: '/discover/movie',
-        params: { with_genres: 28 }
+        params: { with_genres: 28 },
     },
     {
         id: '35',
         name: 'Comédia',
         endpoint: '/discover/movie',
-        params: { with_genres: 35 }
+        params: { with_genres: 35 },
     },
     {
         id: '18',
         name: 'Drama',
         endpoint: '/discover/movie',
-        params: { with_genres: 18 }
+        params: { with_genres: 18 },
     },
     {
         id: '10749',
         name: 'Romance',
         endpoint: '/discover/movie',
-        params: { with_genres: 10749 }
+        params: { with_genres: 10749 },
     },
     {
         id: '878',
@@ -59,7 +59,9 @@ export function Home() {
         const fetchMovies = async () => {
             setLoading(true);
             try {
-                const response = await tmdbApi.get(activeTab.endpoint);
+                const response = await tmdbApi.get(activeTab.endpoint, {
+                    params: activeTab.params,
+                });
                 setMovies(response.data.results);
             } catch (error) {
                 console.error('Erro ao buscar filmes', error);
@@ -93,7 +95,7 @@ export function Home() {
                     {movies.map((movie) => (
                         <MovieCard
                             key={movie.id}
-                            movies={movie}
+                            movie={movie}
                             isFavorite={isFavorite(movie.id)}
                             onToggleFavorite={toggleFavorite}
                         />

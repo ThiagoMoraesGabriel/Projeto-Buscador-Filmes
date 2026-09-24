@@ -1,28 +1,33 @@
 .container {
-  padding: 20px 0;
-  min-height: 80vh;
+    padding: 4px 0;
+    min-height: 80vh;
 }
 
 .title {
-  margin-bottom: 30px;
-  font-size: 2rem;
+    margin: 8px 0 28px;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
 }
 
 .emptyState {
-  text-align: center;
-  margin-top: 100px;
+    text-align: center;
+    margin: 100px auto 0;
+    max-width: 460px;
+    padding: 40px 24px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(17, 24, 39, 0.6);
 }
 
 .emptyStateTitle {
-  color: #666;
+    color: var(--text-h);
 }
 
 .emptyStateText {
-  color: #444;
+    color: var(--muted);
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 26px;
 }
